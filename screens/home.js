@@ -16,8 +16,15 @@ export default function Home({navigation}) {
 
     return (
         <View style={GlobalStyles.container}>
-            <Text style={GlobalStyles.titleText}>Home</Text>
             {/* <Button title="Go to Review Details" onPress={pressHandler}/> */}
+            <FlatList
+             data={reviews}
+             renderItem={({item}) => (
+                 <TouchableOpacity onPress={() => navigation.navigate("ReviewDetails", item)}>
+                     <Text style={GlobalStyles.titleText}>{item.title}</Text>
+                 </TouchableOpacity>
+             )}
+            />
         </View>
     )
 }
