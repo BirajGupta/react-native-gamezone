@@ -1,12 +1,12 @@
 import React from "react"
 import { StyleSheet, View, Text } from "react-native"
 
-export default function ReviewDetails({ navigation }) {
+export default function ReviewDetails({ route }) {
     return (
         <View style={styles.container}>
-            <Text>{navigation.getParam('title')}</Text>
-            <Text>{navigation.getParam('body')}</Text>
-            <Text>{navigation.getParam('rating')}</Text>
+            <Text>{route.params.title}</Text>
+            <Text>{route.params.body}</Text>
+            <Text>{route.params.rating}</Text>
         </View>
     )
 }

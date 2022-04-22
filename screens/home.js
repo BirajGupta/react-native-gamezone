@@ -4,10 +4,7 @@ import {GlobalStyles} from "../styles/global"
 
 
 export default function Home({navigation}) {
-    //navigation.goBack() for popping screen
-    // const pressHandler = () => {
-    //     navigation.push('ReviewDetails')
-    // }
+   
     const [reviews, setReviews] = useState([
         {title:"Zelda, Breath of Fresh Air", rating:5, body:"lorem ipsum", key:1},
         {title:"Gotta Catch them all (again)", rating:4, body:"lorem ipsum", key:2},
@@ -20,7 +17,7 @@ export default function Home({navigation}) {
             <FlatList
              data={reviews}
              renderItem={({item}) => (
-                 <TouchableOpacity onPress={() => navigation.navigate("ReviewDetails", item)}>
+                 <TouchableOpacity onPress={() => navigation.push("ReviewDetails", item)}>
                      <Text style={GlobalStyles.titleText}>{item.title}</Text>
                  </TouchableOpacity>
              )}
