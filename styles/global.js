@@ -15,5 +15,13 @@ export const GlobalStyles = StyleSheet.create({
     paragraph : {
         marginVertical:8,
         lineHeight : 20
+    },
+
+    headerStyles:{
+        backgroundColor:"#abcdef"
+    },
+
+    hamIcon : {
+        marginLeft:18
     }
 })

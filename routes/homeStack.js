@@ -2,7 +2,8 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { NavigationContainer } from "@react-navigation/native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
+import { GlobalStyles } from "../styles/global";
+import { MaterialIcons } from '@expo/vector-icons'; 
 import Blog from "../screens/blog"
 import Home from "../screens/home"
 import ReviewDetails from "../screens/reviewDetail"
@@ -12,16 +13,27 @@ const HomeStack = createStackNavigator()
 const BlogStack = createStackNavigator()
 const Tabs = createBottomTabNavigator()
 
-const HomeStackScreen = () => (
-    <HomeStack.Navigator>
-            <HomeStack.Screen name="Home" component={Home}/>
-            <HomeStack.Screen name="ReviewDetails" component={ReviewDetails} />
+const HomeStackScreen = ({navigation}) => (
+    <HomeStack.Navigator
+    //screenOptions for global styles to a navigator header for all screens in it
+    screenOptions={{
+        headerStyle: GlobalStyles.headerStyles,
+        headerLeft : props => <MaterialIcons name="menu" size={28} style={GlobalStyles.hamIcon} onPress={() => navigation.toggleDrawer()}/>
+    }}
+    >
+        <HomeStack.Screen name="Home" component={Home}/>
+        <HomeStack.Screen name="ReviewDetails" component={ReviewDetails} />
     </HomeStack.Navigator>
 )
 
-const BlogStackScreen = () => (
-    <BlogStack.Navigator>
-            <BlogStack.Screen name="Blog" component={Blog}/>
+const BlogStackScreen = ({navigation}) => (
+    <BlogStack.Navigator
+    screenOptions={{
+        headerStyle: GlobalStyles.headerStyles,
+        headerLeft : props => <MaterialIcons name="menu" size={28} style={GlobalStyles.hamIcon} onPress={() => navigation.toggleDrawer()}/>
+    }}
+    >
+        <BlogStack.Screen name="Blog" component={Blog}/>
     </BlogStack.Navigator>
 )
 
