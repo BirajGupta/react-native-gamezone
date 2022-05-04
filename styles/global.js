@@ -18,11 +18,42 @@ export const GlobalStyles = StyleSheet.create({
     },
 
     headerStyles:{
-        backgroundColor:"#abcdef"
+        backgroundColor:"#abcdef",
+    },
+
+    headerTitleContainer:{
+        flexDirection:"row",
+    },
+
+    headerTitleText:{
+        fontWeight:"700",
+        fontSize:20,
+        paddingLeft:5
+    },
+
+    headerTitleImage:{
+        width:26,
+        height:26
     },
 
     hamIcon : {
         marginLeft:18
+    },
+
+    input:{
+        borderWidth : 1,
+        borderColor : "#ddd",
+        padding : 10,
+        fontSize : 18,
+        borderRadius : 6
+    },
+
+    errorText: {
+        color : "crimson",
+        fontWeight : "bold",
+        marginBottom : 10,
+        marginTop : 6,
+        textAlign : "center"
     }
 })
 

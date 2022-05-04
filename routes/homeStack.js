@@ -7,6 +7,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Home from "../screens/home"
 import ReviewDetails from "../screens/reviewDetail"
 import About from "../screens/about"
+import HeaderTitle from "../shared/headerTitle";
+import { ImageBackground } from "react-native";
 
 const HomeStack = createStackNavigator()
 const AboutStack = createStackNavigator()
@@ -17,6 +19,9 @@ const HomeStackScreen = ({navigation}) => (
     >
         <HomeStack.Screen name="Home" component={Home} options={{
         headerStyle: GlobalStyles.headerStyles,
+        headerTitleAlign : "center",
+        headerBackground : props => <ImageBackground source={require("../assets/game_bg.png")} style={{height:"100%"}} resizeMode="cover"/>,
+        headerTitle : props => <HeaderTitle title={"Gamezone"} image={require("../assets/heart_logo.png")}/>,
         headerLeft : props => <MaterialIcons name="menu" size={28} style={GlobalStyles.hamIcon} onPress={() => navigation.toggleDrawer()}/>
     }}/>
         <HomeStack.Screen name="ReviewDetails" component={ReviewDetails} options={{title: "Review Details"}}/>
@@ -27,6 +32,9 @@ const AboutStackScreen = ({navigation}) => (
     <AboutStack.Navigator
     screenOptions={{
         headerStyle: GlobalStyles.headerStyles,
+        headerTitleAlign : "center",
+        headerBackground : props => <ImageBackground source={require("../assets/game_bg.png")} style={{height:"100%"}} resizeMode="cover"/>,
+        headerTitle : props => <HeaderTitle title={"Gamezone"} image={require("../assets/heart_logo.png")}/>,
         headerLeft : props => <MaterialIcons name="menu" size={28} style={GlobalStyles.hamIcon} onPress={() => navigation.toggleDrawer()}/>
     }}
     >
